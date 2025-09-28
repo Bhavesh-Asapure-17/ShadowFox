@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Royal Challengers Bengaluru - 2025 CHAMPIONS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/lucide-react@0.292.0/dist/lucide-react.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="overflow-x-hidden">
+    <canvas id="dynamic-bg"></canvas>
+    <header
+      id="header"
+      class="bg-rcb-black bg-opacity-80 backdrop-blur-md sticky top-0 z-50 shadow-lg border-b border-gray-800"
+    >
+      <nav
+        class="container mx-auto px-6 py-3 flex justify-between items-center"
+      >
+        <div class="flex items-center space-x-3">
+          <img
+            src="Assets/rcb-logo-new.png"
+            alt="RCB Logo"
+            class="h-14 w-14"
+          />
+          <h1
+            class="text-xl md:text-2xl font-bold text-white tracking-wider uppercase"
+          >
+            RCB Fan Hub
+          </h1>
+        </div>
+        <div class="hidden md:flex items-center space-x-6">
+          <a href="#home" class="nav-link font-semibold text-gray-300">Home</a>
+          <a href="#schedule" class="nav-link font-semibold text-gray-300"
+            >Schedule</a
+          >
+          <a href="#players" class="nav-link font-semibold text-gray-300"
+            >Squad</a
+          >
+          <a href="#stats" class="nav-link font-semibold text-gray-300"
+            >Stats</a
+          >
+          <a href="#news" class="nav-link font-semibold text-gray-300">News</a>
+          <a href="#fan-zone" class="nav-link font-semibold text-gray-300"
+            >Fan Zone</a
+          >
+        </div>
+        <button
+          id="mobile-menu-button"
+          class="md:hidden text-white focus:outline-none"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="4" x2="20" y1="12" y2="12" />
+            <line x1="4" x2="20" y1="6" y2="6" />
+            <line x1="4" x2="20" y1="18" y2="18" />
+          </svg>
+        </button>
+      </nav>
+      <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+        <a href="#home" class="block py-2 nav-link">Home</a>
+        <a href="#schedule" class="block py-2 nav-link">Schedule</a>
+        <a href="#players" class="block py-2 nav-link">Squad</a>
+        <a href="#stats" class="block py-2 nav-link">Stats</a>
+        <a href="#news" class="block py-2 nav-link">News</a>
+        <a href="#fan-zone" class="block py-2 nav-link">Fan Zone</a>
+      </div>
+    </header>
+
+    <main>
+      <section
+        id="home"
+        class="relative min-h-screen flex items-center justify-center text-center bg-cover bg-center"
+        style="
+          background-image: url('Assets/homepng.jpg');
+        "
+      >
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent"
+        ></div>
+        <div class="relative z-10 px-4">
+          <div
+            id="next-match-container"
+            class="bg-black bg-opacity-60 py-3 px-6 rounded-lg inline-block mb-4 shadow-lg backdrop-blur-sm"
+          >
+            <p class="text-xl font-bold text-rcb-gold">
+              Season Concluded! See you next year!
+            </p>
+          </div>
+          <h2
+            class="text-5xl md:text-8xl font-black tracking-tighter uppercase"
+          >
+            <span class="rcb-red drop-shadow-lg">IPL 2025</span>
+            <span class="text-white drop-shadow-lg">CHAMPIONS</span>
+          </h2>
+          <p
+            class="mt-4 text-xl md:text-3xl font-bold rcb-gold tracking-wider drop-shadow-md"
+          >
+            #EeSalaCupNamdu
+          </p>
+          <a
+            href="#players"
+            class="mt-8 inline-block text-white font-bold py-4 px-10 rounded-full text-lg uppercase btn-primary"
+          >
+            Meet The Champions
+          </a>
+        </div>
+      </section>
+
+      <section id="schedule" class="py-24 bg-rcb-black section-fade-in">
+        <div class="container mx-auto px-6">
+          <h2 class="text-4xl font-bold text-center mb-12 uppercase">
+            2025 Season <span class="rcb-red">Results</span>
+          </h2>
+          <div
+            id="schedule-scroll-area"
+            class="max-h-[80vh] overflow-y-auto pr-2"
+          >
+            <div id="schedule-container">
+              </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="players" class="py-24 bg-[#111] section-fade-in">
+        <div class="container mx-auto px-6">
+          <h2 class="text-4xl font-bold text-center mb-12 uppercase">
+            The Champion <span class="rcb-red">Squad</span>
+          </h2>
+          <div id="squad-container">
+            </div>
+        </div>
+      </section>
+
+      <section id="stats" class="py-24 bg-rcb-black section-fade-in">
+        <div class="container mx-auto px-6">
+          <h2 class="text-4xl font-bold text-center mb-12 uppercase">
+            Champion <span class="rcb-red">Statistics</span>
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <div class="bg-rcb-gradient p-6 rounded-lg shadow-lg stat-card">
+              <h3 class="text-2xl font-bold rcb-gold mb-4">
+                Top Run Scorers (2025)
+              </h3>
+              <ul class="space-y-3">
+                <li class="flex justify-between items-center text-lg">
+                  <span class="font-semibold">1. Virat Kohli</span>
+                  <span class="font-bold">741 Runs</span>
+                </li>
+                <li class="flex justify-between items-center text-lg">
+                  <span class="font-semibold">2. Faf du Plessis</span>
+                  <span class="font-bold">612 Runs</span>
+                </li>
+                <li class="flex justify-between items-center text-lg">
+                  <span class="font-semibold">3. Cameron Green</span>
+                  <span class="font-bold">455 Runs</span>
+                </li>
+              </ul>
+            </div>
+            <div class="bg-rcb-gradient p-6 rounded-lg shadow-lg stat-card">
+              <h3 class="text-2xl font-bold rcb-gold mb-4">
+                Leading Wicket Takers (2025)
+              </h3>
+              <ul class="space-y-3">
+                <li class="flex justify-between items-center text-lg">
+                  <span class="font-semibold">1. Mohammed Siraj</span>
+                  <span class="font-bold">28 Wickets</span>
+                </li>
+                <li class="flex justify-between items-center text-lg">
+                  <span class="font-semibold">2. Yash Dayal</span>
+                  <span class="font-bold">21 Wickets</span>
+                </li>
+                <li class="flex justify-between items-center text-lg">
+                  <span class="font-semibold">3. Lockie Ferguson</span>
+                  <span class="font-bold">19 Wickets</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <h3 class="text-3xl font-bold text-center mb-8 uppercase">
+            All-Time <span class="rcb-red">Records</span>
+          </h3>
+          <div
+            class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center"
+          >
+            <div class="bg-rcb-gradient p-6 rounded-lg shadow-lg">
+              <p class="text-4xl font-extrabold rcb-gold">263/5</p>
+              <p class="mt-2 text-gray-300 font-semibold">Highest Score</p>
+            </div>
+            <div class="bg-rcb-gradient p-6 rounded-lg shadow-lg">
+              <p class="text-4xl font-extrabold rcb-gold">49</p>
+              <p class="mt-2 text-gray-300 font-semibold">Lowest Score</p>
+            </div>
+            <div class="bg-rcb-gradient p-6 rounded-lg shadow-lg">
+              <p class="text-4xl font-extrabold rcb-gold">175*</p>
+              <p class="mt-2 text-gray-300 font-semibold">
+                Highest Individual Score
+              </p>
+            </div>
+            <div class="bg-rcb-gradient p-6 rounded-lg shadow-lg">
+              <p class="text-4xl font-extrabold rcb-gold">6/19</p>
+              <p class="mt-2 text-gray-300 font-semibold">
+                Best Bowling Figures
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="news" class="py-24 bg-[#111] section-fade-in">
+        <div class="container mx-auto px-6">
+          <h2 class="text-4xl font-bold text-center mb-12 uppercase">
+            Champions <span class="rcb-red">Headlines</span>
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div
+              class="bg-rcb-gradient rounded-lg overflow-hidden shadow-lg group"
+            >
+              <img
+                src="Assets/homepng.jpg"
+                alt="News Image"
+                class="w-full h-48 object-cover group-hover:opacity-80 transition-opacity"
+              />
+              <div class="p-6">
+                <p class="text-sm text-gray-400 mb-2">June 03, 2025</p>
+                <h3
+                  class="text-xl font-bold mb-3 group-hover:rcb-red transition"
+                >
+                  FINALLY! RCB LIFTS THE IPL TROPHY!
+                </h3>
+              </div>
+            </div>
+            <div
+              class="bg-rcb-gradient rounded-lg overflow-hidden shadow-lg group"
+            >
+              <img
+                src="Assets/new2.jpg"
+                alt="News Image"
+                class="w-full h-48 object-cover group-hover:opacity-80 transition-opacity"
+              />
+              <div class="p-6">
+                <p class="text-sm text-gray-400 mb-2">June 03, 2025</p>
+                <h3
+                  class="text-xl font-bold mb-3 group-hover:rcb-red transition"
+                >
+                  "This is for the fans!" - An emotional Virat Kohli
+                </h3>
+              </div>
+            </div>
+            <div
+              class="bg-rcb-gradient rounded-lg overflow-hidden shadow-lg group"
+            >
+              <img
+                src="Assets/news3.webp"
+                alt="News Image"
+                class="w-full h-48 object-cover group-hover:opacity-80 transition-opacity"
+              />
+              <div class="p-6">
+                <p class="text-sm text-gray-400 mb-2">June 04, 2025</p>
+                <h3
+                  class="text-xl font-bold mb-3 group-hover:rcb-red transition"
+                >
+                  Bengaluru erupts in joy; Victory parade announced
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="fan-zone" class="py-24 bg-rcb-black section-fade-in">
+        <div class="container mx-auto px-6">
+          <h2 class="text-4xl font-bold text-center mb-12 uppercase">
+            Fan <span class="rcb-red">Zone</span>
+          </h2>
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div class="bg-rcb-gradient p-8 rounded-lg shadow-2xl">
+              <h3 class="text-2xl font-bold mb-4 rcb-gold">Fan Poll</h3>
+              <p class="mb-6">
+                What was the most memorable moment of our championship run?
+              </p>
+              <div id="poll-container">
+                <div id="poll-options" class="space-y-4">
+                  <button
+                    class="poll-option w-full text-left bg-gray-700 p-4 rounded-lg hover:bg-gray-600 transition"
+                    data-option="FinalWin"
+                  >
+                    The Final Winning Moment
+                  </button>
+                  <button
+                    class="poll-option w-full text-left bg-gray-700 p-4 rounded-lg hover:bg-gray-600 transition"
+                    data-option="KohlisCentury"
+                  >
+                    Kohli's crucial century
+                  </button>
+                  <button
+                    class="poll-option w-full text-left bg-gray-700 p-4 rounded-lg hover:bg-gray-600 transition"
+                    data-option="SirajsSpell"
+                  >
+                    Siraj's fiery spell
+                  </button>
+                </div>
+                <div id="poll-results" class="hidden mt-6 space-y-3"></div>
+              </div>
+            </div>
+            <div
+              class="bg-rcb-gradient p-8 rounded-lg shadow-2xl flex flex-col h-[34rem]"
+            >
+              <h3 class="text-2xl font-bold mb-4 rcb-gold flex-shrink-0">
+                Celebration Wall
+              </h3>
+              <div
+                id="comments-section"
+                class="space-y-4 mb-4 flex-grow overflow-y-auto pr-2"
+              >
+                <div class="bg-gray-700 p-3 rounded-lg">
+                  <p class="font-bold text-rcb-red">@RCB_Forever</p>
+                  <p class="text-sm text-gray-300">
+                    I'M CRYING! WE DID IT! #EeSalaCupNamdu
+                  </p>
+                </div>
+              </div>
+              <div class="mt-auto flex-shrink-0">
+                <input
+                  id="username-input"
+                  type="text"
+                  placeholder="Your name"
+                  class="w-full bg-gray-800 border border-gray-600 p-3 rounded-lg mb-2 focus:outline-none focus:ring-2 focus:ring-rcb-red"
+                />
+                <textarea
+                  id="comment-input"
+                  rows="3"
+                  placeholder="Share your joy..."
+                  class="w-full bg-gray-800 border border-gray-600 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-rcb-red"
+                ></textarea>
+                <button
+                  id="submit-comment"
+                  class="mt-2 w-full text-white font-bold py-3 px-6 rounded-lg btn-primary"
+                >
+                  Post Message
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-black pt-12 pb-8 relative z-10">
+      <div class="container mx-auto px-6 text-center text-gray-400">
+        <img
+          src="Assets/rcb-logo-new.png"
+          alt="RCB Logo"
+          class="h-20 w-20 mx-auto mb-4"
+        />
+        <p class="text-2xl font-black uppercase tracking-wider mb-4">
+          <span class="rcb-red">Royal Challengers</span> Bengaluru
+        </p>
+        <p class="text-lg font-bold rcb-gold uppercase mb-6">
+          IPL 2025 Champions
+        </p>
+        <div class="flex justify-center space-x-6 mb-8">
+          <a href="#" class="hover:text-white transition"
+            ><svg
+              class="w-7 h-7"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"
+              /></svg
+          ></a>
+          <a href="#" class="hover:text-white transition"
+            ><svg
+              class="w-7 h-7"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M12 2C6.477 2 2 6.477 2 12c0 4.489 2.924 8.297 6.951 9.534.502.092.684-.218.684-.484 0-.238-.009-1.05-.014-1.928-2.838.616-3.437-1.22-3.437-1.22-.456-1.158-1.114-1.468-1.114-1.468-.91-.622.069-.609.069-.609 1.006.071 1.535 1.033 1.535 1.033.894 1.532 2.345 1.088 2.916.832.091-.646.349-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.943 0-1.091.39-1.984 1.032-2.682-.103-.253-.448-1.269.098-2.645 0 0 .84-.269 2.75 1.026A9.55 9.55 0 0112 6.848a9.55 9.55 0 012.502.336c1.91-1.295 2.748-1.026 2.748-1.026.548 1.376.203 2.392.1 2.645.643.698 1.032 1.591 1.032 2.682 0 3.84-2.337 4.687-4.565 4.935.358.309.679.92.679 1.852 0 1.338-.012 2.419-.012 2.745 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z"
+                clip-rule="evenodd"
+              /></svg
+          ></a>
+          <a href="#" class="hover:text-white transition"
+            ><svg
+              class="w-7 h-7"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.17 8.44l-2.43 5.56c-.16.36-.44.5-.7.42-.26-.08-.45-.3-.49-.59l-.45-2.22-2.22-.45c-.29-.04-.51-.23-.59-.49-.08-.26.06-.54.42-.7l5.56-2.43c.36-.16.72.13.6.49z"
+              /></svg
+          ></a>
+        </div>
+        <p>
+          &copy; 2025 Royal Challengers Bengaluru Fan Hub. All Rights Reserved.
+        </p>
+        <p class="text-xs mt-2 opacity-60">
+          This is an unofficial fan-made website.
+        </p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

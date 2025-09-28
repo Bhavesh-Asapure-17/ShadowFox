@@ -1,0 +1,140 @@
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #1a1a1a;
+  color: #f1f1f1;
+}
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  background: radial-gradient(
+    800px circle at var(--mouse-x, -1000px) var(--mouse-y, -1000px),
+    rgba(236, 28, 36, 0.1),
+    /* A very subtle red glow */ transparent 40%
+  );
+  z-index: 1; /* Above the base background */
+}
+#dynamic-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.rcb-gold {
+  color: #d1ab3e;
+}
+.rcb-red {
+  color: #ec1c24;
+}
+.bg-rcb-red {
+  background-color: #ec1c24;
+}
+.bg-rcb-black {
+  background-color: #111111;
+}
+.border-rcb-gold {
+  border-color: #d1ab3e;
+}
+.bg-rcb-gradient {
+  background: linear-gradient(145deg, #2c2c2c, #1a1a1a);
+  border: 1px solid #333;
+}
+.nav-link {
+  position: relative;
+  transition: color 0.3s;
+  padding-bottom: 8px;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 3px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, #d1ab3e, #ec1c24);
+  transition: width 0.4s ease;
+  border-radius: 2px;
+}
+.nav-link:hover {
+  color: #fff;
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.player-card {
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.player-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(236, 28, 36, 0.3);
+}
+.player-card img {
+  transition: transform 0.4s ease;
+}
+.player-card:hover img {
+  transform: scale(1.1);
+}
+.player-card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+  padding: 2.5rem 1.5rem 1.5rem;
+}
+
+.btn-primary {
+  transition: all 0.3s ease;
+  background: linear-gradient(45deg, #ec1c24, #d62828);
+  border: 2px solid #ec1c24;
+}
+.btn-primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(236, 28, 36, 0.5);
+  filter: brightness(1.1);
+}
+
+.section-fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.section-fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.poll-bar-fill {
+  transition: width 0.5s ease-in-out;
+}
+.stat-card {
+  border-left: 4px solid #d1ab3e;
+}
+/* Custom Scrollbar */
+#comments-section::-webkit-scrollbar,
+#schedule-scroll-area::-webkit-scrollbar {
+  width: 8px;
+}
+#comments-section::-webkit-scrollbar-track,
+#schedule-scroll-area::-webkit-scrollbar-track {
+  background: #2d3748;
+  border-radius: 10px;
+}
+#comments-section::-webkit-scrollbar-thumb,
+#schedule-scroll-area::-webkit-scrollbar-thumb {
+  background: #ec1c24;
+  border-radius: 10px;
+}
+#comments-section::-webkit-scrollbar-thumb:hover,
+#schedule-scroll-area::-webkit-scrollbar-thumb:hover {
+  background: #d1ab3e;
+}
