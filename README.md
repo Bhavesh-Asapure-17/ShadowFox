@@ -26,24 +26,24 @@ Frontend: HTML5, CSS3, JavaScript (optional)<br>
 
 🟡 Intermediate Level Task – IPL Team Website Development
 
-📌 Description
-A dedicated IPL Team Website that serves as a central hub for fans to access team-related content such as match schedules, player profiles, statistics, news updates, and interactive fan features.
+📌 Description<br>
+A dedicated IPL Team Website that serves as a central hub for fans to access team-related content such as match schedules, player profiles, statistics, news updates, and interactive fan features.<br>
 
-🎯 Objectives
-Improve proficiency in web design & development
-Organize and present team-related content effectively
-Implement user-friendly navigation for desktop & mobile
-Add interactive features for fan engagement
-Blend creativity with functionality to capture the spirit of IPL
+🎯 Objectives<br>
+Improve proficiency in web design & development<br>
+Organize and present team-related content effectively<br>
+Implement user-friendly navigation for desktop & mobile<br>
+Add interactive features for fan engagement<br>
+Blend creativity with functionality to capture the spirit of IPL<br>
 
-⚡ Features
-Team introduction & overview
-Match schedules & results
-Player profiles & team statistics
-News updates & announcements
-Interactive fan section – polls, engagement features, social media integration
-Fully responsive design
+⚡ Features<br>
+Team introduction & overview<br>
+Match schedules & results<br>
+Player profiles & team statistics<br>
+News updates & announcements<br>
+Interactive fan section – polls, engagement features, social media integration<br>
+Fully responsive design<br>
 
-📂 Tech Stack
-Frontend: HTML5, CSS3, JavaScript
+📂 Tech Stack<br>
+Frontend: HTML5, CSS3, JavaScript<br>
 Design: Responsive layout principles
